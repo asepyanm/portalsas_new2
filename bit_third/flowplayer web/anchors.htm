@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+
+
+
+
+ 
+
+<script src="anchors_files/flowplayer-3.js"></script>		
+
+
+<!-- some minimal styling -->
+<style>
+#player, #clips {
+	float:left;
+	margin-right:20px;
+}
+
+#clips a {
+	display:block;
+	margin-bottom:20px;
+}
+</style>
+
+<!--  setup player with standard HTML syntax -->
+</head><body><a href="http://flowplayer.org/demos/scripting/KimAronson-TwentySeconds70930.flv" style="display: block; width: 400px; height: 300px;" id="player"><object id="player_api" data="anchors_files/flowplayer-3.swf" type="application/x-shockwave-flash" width="100%" height="100%"><param name="allowfullscreen" value="true"><param name="allowscriptaccess" value="always"><param name="quality" value="high"><param name="cachebusting" value="false"><param name="bgcolor" value="#000000"><param name="flashvars" value="config={&quot;clip&quot;:{&quot;baseUrl&quot;:&quot;http://blip.tv/file/get&quot;,&quot;autoPlay&quot;:false,&quot;autoBuffering&quot;:true,&quot;url&quot;:&quot;KimAronson-TwentySeconds70930.flv&quot;},&quot;playerId&quot;:&quot;player&quot;,&quot;playlist&quot;:[{&quot;baseUrl&quot;:&quot;http://blip.tv/file/get&quot;,&quot;autoPlay&quot;:false,&quot;autoBuffering&quot;:true,&quot;url&quot;:&quot;KimAronson-TwentySeconds70930.flv&quot;}]}"></object></a>
+
+
+
+
+<div id="clips">
+	<a href="http://flowplayer.org/demos/scripting/KimAronson-TwentySeconds70930.flv">Eating sushi</a> 
+	<a href="http://flowplayer.org/demos/scripting/KimAronson-TwentySeconds64268.flv">Hotel room with brown carpet</a> 
+	<a href="http://flowplayer.org/demos/scripting/KimAronson-TwentySeconds63617.flv">Small lake and a bicycle</a>
+</div>
+<!-- let rest of the page float normally -->
+<br clear="all">
+
+<script>
+//  install Flowplayer inside a#player
+$f("player", "http://releases.flowplayer.org/swf/flowplayer-3.1.5.swf", {
+		
+	 
+		
+	clip: {
+
+		// use baseUrl so we can play with shorter file names
+		baseUrl: 'http://blip.tv/file/get',
+
+		// use first frame of the clip as a splash screen
+		autoPlay: false,
+		autoBuffering: true
+	} 
+});
+
+
+// get all links that are inside div#clips
+var links = document.getElementById("clips").getElementsByTagName("a");
+
+// loop those links and alter their click behaviour
+for (var i = 0; i < links.length; i++) {
+	links[i].onclick = function() {
+		
+		// play the clip specified in href- attribute with Flowplayer
+		$f().play(this.getAttribute("href", 2));
+		
+		// by returning false normal link behaviour is skipped
+		return false;
+	}
+}
+</script>
+</body></html>

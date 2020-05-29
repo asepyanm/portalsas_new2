@@ -1,0 +1,68 @@
+/*
+** ---------------------------------------
+** filename: bit_css.css
+** ---------------------------------------
+** Required by all pages except print page
+**
+** Developed by bee-IT - March 2010
+** ---------------------------------------
+*/
+body {
+	margin: 0px;
+	padding: 0px;
+}
+
+body, td, input, textarea, select, option {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+}
+
+.article_layout_hr {
+	padding: 1px;
+	height:1px;
+	border-top-width: 1px;
+	border-top-style: dotted;
+	border-top-color: #CCDDFF;
+}
+
+
+.inputBox {
+	font-size: 10px;
+	vertical-align: middle;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	background-color: #EDF6F8;
+	border:1px solid #AFBFEB;
+	color: #000000;
+}
+
+.inputBoxDisabled {
+	font-size: 10px;
+	vertical-align: middle;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	background-color: #E1E1E1;
+	border:1px solid #AFBFEB;
+	color: #000000;
+}
+
+
+.title {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+	color: #2EB8E9;
+	margin: 0px;
+	padding: 0px;
+}
+
+.button {
+	font-weight: normal;
+	font-size: 11px;
+	vertical-align: middle;
+	text-transform: none;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	background-color: #F4C84B;
+	border:1px solid #7B5B01;
+	text-decoration: none;
+	color: #fff;
+}
+

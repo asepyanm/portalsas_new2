@@ -1,0 +1,73 @@
+#jFlowSlideFoto{ background:#BEDFED; }
+#myControllerFoto { font-family: Arial, Helvetica, sans-serif; padding-bottom:2px; width:300px; background:#3AB7FF; text-align:center; }
+#myControllerFoto span.jFlowSelectedFoto { background:#ffffff;margin-right:0px; color:#CD1400; }
+
+
+.slide-wrapperFoto { padding: 0px; }
+.slide-thumbnailFoto { 
+	height:200px;
+	margin: 0px;
+}
+.slide-thumbnailFoto img {height:200px;}
+.slide-detailsFoto {  margin-left:0px;}
+
+.slide-detailsFoto .description { font-size:10px; font-weight:normal;  margin:0; background-color:#BEDFED; text-align:center; padding:5px; color:#0A4F7C; font-weight:bold}
+
+.jFlowControlFoto   {
+	color:#0A0A0B;
+	cursor:pointer;
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:0px;
+	padding-bottom:0px;
+	font-size:11px;
+	border: 1px solid #FFFFFF;
+	background-color:#0A3D5B;
+	color:#ffffff;
+}
+
+.jFlowPrevFoto, .jFlowNextFoto  {
+	color:#0A0A0B;
+	cursor:pointer;
+	padding-left:5px;
+	padding-right:5px;
+	padding-top:0px;
+	padding-bottom:0px;
+	font-size:11px;
+}
+
+.imgFotoArrow  {
+	color:#0A0A0B;
+	cursor:pointer;
+	font-size:11px;
+	padding-top: 0px;
+	margin: 0px;
+	vertical-align: middle;
+}
+
+.jFlowControlFoto:hover { background: #165D86; }
+
+
+#jFlowSlideInfra{ background:#DBF3FD;}
+#myControllerInfra {  padding:2px 0;  width:300px; background:#3AB7FF; }
+#myControllerInfra span.jFlowSelectedInfra { background:#43A0D5;margin-right:0px; }
+
+.slide-wrapper { padding: 5px; }
+.slide-thumbnail { 
+	width:64px; float:left; 
+	margin: 4px 8px 0px 5px;
+}
+.slide-thumbnail img {max-width:64px; width:64px; border: 1px solid #6764bb; padding: 1px; }
+.slide-details {  margin-left:5px;}
+.slide-details h2 { font-size:14px; color:#0A679C; font-weight:bold; line-height: 1; margin:0; }
+
+.slide-details .description { font-size:12px;  line-height: 1.5; margin:0; }
+
+.jFlowControlInfra, .jFlowPrevInfra, .jFlowNextInfra { color:#FFF; cursor:pointer; padding-left:5px; padding-right:5px; padding-top:2px; padding-bottom:2px; }
+.jFlowControlInfra:hover, .jFlowPrevInfra:hover, .jFlowNextInfra:hover { background: #43A0D5; }
+
+.slide_dateInfra {
+	margin: 4px 8px 5px 5px;
+	font-size: 10px;
+	color:#363674;
+}

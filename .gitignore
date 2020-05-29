@@ -1,0 +1,5 @@
+doc/*
+*.bak
+.git
+.openshift
+db*.sql

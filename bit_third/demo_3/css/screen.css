@@ -1,0 +1,22 @@
+
+	#content1 {
+		padding:1px;
+	}
+	
+	p {
+		text-align: center;
+	}
+	
+	#nav-shadow {
+		padding:0px;
+		list-style: none;
+	}
+		
+	#nav-shadow li {
+		margin-right: 20px;
+		float: left;
+		text-align:center;
+		white-space:nowrap;
+		padding:0px;
+	}
+		
