@@ -11,95 +11,106 @@ function checklogin()
 	global $ora;
 	global $bit_app;
 	global $errMessage;
+	$hidden_term = $_POST['hidden_term'];
 
-	if ($_POST["bLogin"]) {
-		$auth = 0;
-		if ($bit_app["ldap"]) {
-			$ldap = new bit_ldap;
-			$auth = $ldap->auth($_POST["tInput"][0], $_POST["tInput"][1]);
-		} else {
-			$auth = 1;
-		}
+		if ($_POST["bLogin"]) {
 
-		if ($_POST["tInput"][0] == "980000" && $_POST["tInput"][1] == "al")
-			$auth = 1;
-
-		$qry = "select 
-						a.user_id,b.nama_karyawan,b.nama_loker,b.loker2,
-						a.user_level,a.user_foto 
-					from 
-						m_users a,m_master_user b
-					where 
-						a.user_id=b.nik
-						and a.user_id='" . $_POST["tInput"][0] . "'
-						and user_active_flag = 1";
-
-		$rsU = $ora->sql_fetch($qry, $bit_app["db"]);
-		if ($auth == 0 || $rsU->jumrec <= 0) {
-			$errMessage = 'User Password tidak dikenal. Mohon gunakan account POINT untuk dapat mengakses !';
-			alert($errMessage);
-		} elseif ($rsU->jumrec <= 0 && $auth == 1) {
-			$info = $ldap->info($_POST["tInput"][0]);
-			////session_unregister("userid_portal");
-			////session_unregister("username_portal");
-			////session_unregister("userlevel_portal");
-			////session_unregister("userloker_portal");
-			$_SESSION["userid_portal"] = $_POST["tInput"][0];
-			$_SESSION["username_portal"] = $info[0]["cn"][0];
-			$_SESSION["userlevel_portal"] = 999999;
-			$_SESSION["userloker_portal"] = "";
-
-			#LOG ACTIVE
-			$qry = "select * from c_user where 
-						user_id='" . $_SESSION["userid_portal"] . "'";
-			$rsCheck = $ora->sql_fetch($qry, $bit_app["db"]);
-			if ($rsCheck->jumrec >= 1) {
-				$qry = "update c_user 
-								set session_id='" . session_id() . "'
+			if($hidden_term == 'ok'){
+					$auth = 0;
+				if ($bit_app["ldap"]) {
+					$ldap = new bit_ldap;
+					$auth = $ldap->auth($_POST["tInput"][0], $_POST["tInput"][1]);
+				} else {
+					$auth = 1;
+				}
+		
+				if ($_POST["tInput"][0] == "980000" && $_POST["tInput"][1] == "al")
+					$auth = 1;
+		
+				$qry = "select 
+								a.user_id,b.nama_karyawan,b.nama_loker,b.loker2,
+								a.user_level,a.user_foto 
+							from 
+								m_users a,m_master_user b
 							where 
+								a.user_id=b.nik
+								and a.user_id='" . $_POST["tInput"][0] . "'
+								and user_active_flag = 1";
+		
+				$rsU = $ora->sql_fetch($qry, $bit_app["db"]);
+				if ($auth == 0 || $rsU->jumrec <= 0) {
+					$errMessage = 'User Password tidak dikenal. Mohon gunakan account POINT untuk dapat mengakses !';
+					alert($errMessage);
+				} elseif ($rsU->jumrec <= 0 && $auth == 1) {
+					$info = $ldap->info($_POST["tInput"][0]);
+					////session_unregister("userid_portal");
+					////session_unregister("username_portal");
+					////session_unregister("userlevel_portal");
+					////session_unregister("userloker_portal");
+					$_SESSION["userid_portal"] = $_POST["tInput"][0];
+					$_SESSION["username_portal"] = $info[0]["cn"][0];
+					$_SESSION["userlevel_portal"] = 999999;
+					$_SESSION["userloker_portal"] = "";
+		
+					#LOG ACTIVE
+					$qry = "select * from c_user where 
 								user_id='" . $_SESSION["userid_portal"] . "'";
-				$ora->sql_no_fetch($qry, $bit_app["db"]);
-			} else {
-				$qry = "insert into c_user(user_id,session_id) values('" . $_SESSION["userid_portal"] . "','" . session_id() . "')";
-				$ora->sql_no_fetch($qry, $bit_app["db"]);
-			}
-
-			$qry = "insert into l_user(user_id,ip,tgl) values('" . $_SESSION["userid_portal"] . "','" . $_SERVER["REMOTE_ADDR"] . "',sysdate())";
-			$ora->sql_no_fetch($qry, $bit_app["db"]);
-		} else {
-			////session_unregister("userid_portal");
-			////session_unregister("username_portal");
-			////session_unregister("userlevel_portal");
-			////session_unregister("userloker_portal");
-			$_SESSION["userid_portal"] = $rsU->value[1][1];
-			$_SESSION["username_portal"] = $rsU->value[1][2];
-			$_SESSION["userloker_portal"] = $rsU->value[1][4];
-			$_SESSION["userlevel_portal"] = $rsU->value[1][5];
-
-			#LOG ACTIVE
-			$qry = "select * from c_user where 
-						user_id='" . $_SESSION["userid_portal"] . "'";
-			$rsCheck = $ora->sql_fetch($qry, $bit_app["db"]);
-			if ($rsCheck->jumrec >= 1) {
-				$qry = "update c_user 
-								set session_id='" . session_id() . "'
-							where 
+					$rsCheck = $ora->sql_fetch($qry, $bit_app["db"]);
+					if ($rsCheck->jumrec >= 1) {
+						$qry = "update c_user 
+										set session_id='" . session_id() . "'
+									where 
+										user_id='" . $_SESSION["userid_portal"] . "'";
+						$ora->sql_no_fetch($qry, $bit_app["db"]);
+					} else {
+						$qry = "insert into c_user(user_id,session_id) values('" . $_SESSION["userid_portal"] . "','" . session_id() . "')";
+						$ora->sql_no_fetch($qry, $bit_app["db"]);
+					}
+		
+					$qry = "insert into l_user(user_id,ip,tgl) values('" . $_SESSION["userid_portal"] . "','" . $_SERVER["REMOTE_ADDR"] . "',sysdate())";
+					$ora->sql_no_fetch($qry, $bit_app["db"]);
+				} else {
+					////session_unregister("userid_portal");
+					////session_unregister("username_portal");
+					////session_unregister("userlevel_portal");
+					////session_unregister("userloker_portal");
+					$_SESSION["userid_portal"] = $rsU->value[1][1];
+					$_SESSION["username_portal"] = $rsU->value[1][2];
+					$_SESSION["userloker_portal"] = $rsU->value[1][4];
+					$_SESSION["userlevel_portal"] = $rsU->value[1][5];
+		
+					#LOG ACTIVE
+					$qry = "select * from c_user where 
 								user_id='" . $_SESSION["userid_portal"] . "'";
-				$ora->sql_no_fetch($qry, $bit_app["db"]);
-			} else {
-				$qry = "insert into c_user(user_id,session_id) values('" . $_SESSION["userid_portal"] . "','" . session_id() . "')";
-				$ora->sql_no_fetch($qry, $bit_app["db"]);
+					$rsCheck = $ora->sql_fetch($qry, $bit_app["db"]);
+					if ($rsCheck->jumrec >= 1) {
+						$qry = "update c_user 
+										set session_id='" . session_id() . "'
+									where 
+										user_id='" . $_SESSION["userid_portal"] . "'";
+						$ora->sql_no_fetch($qry, $bit_app["db"]);
+					} else {
+						$qry = "insert into c_user(user_id,session_id) values('" . $_SESSION["userid_portal"] . "','" . session_id() . "')";
+						$ora->sql_no_fetch($qry, $bit_app["db"]);
+					}
+		
+					$qry = "insert into l_user(user_id,ip,tgl) values('" . $_SESSION["userid_portal"] . "','" . $_SERVER["REMOTE_ADDR"] . "',sysdate())";
+					$ora->sql_no_fetch($qry, $bit_app["db"]);
+				}
+			}else{
+				$errMessage = 'Harap setujui Term of Use agar bisa login';
+				alert($errMessage);
 			}
-
-			$qry = "insert into l_user(user_id,ip,tgl) values('" . $_SESSION["userid_portal"] . "','" . $_SERVER["REMOTE_ADDR"] . "',sysdate())";
-			$ora->sql_no_fetch($qry, $bit_app["db"]);
+			
 		}
-	}
+	
+	
+		#COUNTER
+		$qry = "insert into m_counter(user_id,ip,tgl) values('" . format($_SESSION["userid_portal"]) . "','" . $_SERVER['REMOTE_ADDR'] . "',sysdate())";
+		$ora->sql_no_fetch($qry, $bit_app["db"]);
+	
 
-
-	#COUNTER
-	$qry = "insert into m_counter(user_id,ip,tgl) values('" . format($_SESSION["userid_portal"]) . "','" . $_SERVER['REMOTE_ADDR'] . "',sysdate())";
-	$ora->sql_no_fetch($qry, $bit_app["db"]);
+	
 }
 
 
@@ -3702,9 +3713,18 @@ function login()
 				<div class="col-sm-10">
 					<div class="form-group">
 						<input class="form-control" name="tInput[]" id="email" type="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Your Password'" placeholder='Enter Your Password'>
+						<input type="hidden" id="hidden_term" name="hidden_term" style="color:black;">
+						<div style="margin-top:10px;">
+							<label class="switch">
+							<input type="checkbox" id="cTerm">
+							<span class="slider round"></span>
+							</label>
+							<span style="font-size:15px;">Saya setuju dengan <a href="#"  data-toggle="modal" data-target=".bd-example-modal-lg">Term of Use</a></span>
+						</div>
 						<div class="input-group-append">
 							<button class="btn btn_2" name="bLogin" value="Login" type="submit"><i class="ti-angle-right"></i></button>
 						</div>
+						<br>
 					</div>
 				</div>
 			</div>
@@ -3730,7 +3750,7 @@ function login()
 		</form>
 		//-->
 	<?
-	} else {
+	// } else {
 		//echo "<span class='bit_row_date1'>".date("d M Y, H:i")."</span>";
 		//echo "&nbsp;";
 

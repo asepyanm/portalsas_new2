@@ -2,11 +2,11 @@
 session_start();
 include_once("bit_config.php");
 
-if (1 == 1) {
-    $param = 'onLoad="init();"';
-} else {
-    $param = '';
-}
+// if (1 == 1) {
+//     $param = 'onLoad="init();"';
+// } else {
+//     $param = '';
+// }
 
 ?>
 <!doctype html>
@@ -43,6 +43,7 @@ if (1 == 1) {
     <link rel="stylesheet" href="<?php echo $bit_app["path_url"]; ?>bit_css/jquery-ui.css">
     <!-- style CSS -->
     <link rel="stylesheet" href="<?php echo $bit_app["path_url"]; ?>bit_css/style.css">
+    <link rel="stylesheet" href="<?php echo $bit_app["path_url"]; ?>bit_css/toggle-switch.css">
 
     <!-- jquery -->
     <script src="bit_js/jquery-1.12.1.min.js"></script>

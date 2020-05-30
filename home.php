@@ -18,7 +18,6 @@
                         <br><br><br><br>
 
                         <div class="col-lg-10">
-
                             <?php
                             if (!getUserID())
                                 login();
@@ -271,4 +270,6 @@ Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. </
 <!-- </div>
 </footer> -->
 <!-- footer part end-->
+
+
 <?php require_once('footer.php'); ?>
