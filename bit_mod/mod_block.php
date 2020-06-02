@@ -3716,7 +3716,7 @@ function login()
 						<input type="hidden" id="hidden_term" name="hidden_term" style="color:black;">
 						<div style="margin-top:10px;">
 							<label class="switch">
-							<input type="checkbox" id="cTerm">
+							<input type="checkbox" id="cTerm" checked>
 							<span class="slider round"></span>
 							</label>
 							<span style="font-size:15px;">Saya setuju dengan <a href="#"  data-toggle="modal" data-target=".bd-example-modal-lg">Term of Use</a></span>

@@ -13,14 +13,14 @@
 <div class="modal-dialog modal-xl">
     <div class="modal-content">
     <div class="modal-header">
-        <h5 class="modal-title">GENERAL TERM OF SERVICE WEBSITE EMAIL TELKOM</h5>
+        <h5 class="modal-title">GENERAL TERM OF SERVICE WEBSITE SAS TELKOM</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
         </button>
     </div>
     <div class="modal-body">
     
-        <embed src="<?php echo $bit_app["path_url"]; ?>user-guide/General Term of Service - Portal SAS (SASIS) v0.5-converted.pdf" 
+        <embed src="<?php echo $bit_app["path_url"]; ?>user-guide/GeneralTermofService-PortalSAS(SASIS)v0.5.pdf" 
     type="application/pdf" style="width:100%;height:500px;">
     </div>
     </div>
@@ -54,7 +54,7 @@
     $(document).ready(function() {
         $('video').mediaelementplayer();
 
-        $('#hidden_term').val('nok');
+        $('#hidden_term').val('ok');
     $('#cTerm').on('change', function () {
         if ($(this).prop('checked')) {
             // $('.tgl_pemeriksaan').fadeIn('slow');
