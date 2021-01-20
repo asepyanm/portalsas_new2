@@ -44,6 +44,7 @@ include_once("bit_config.php");
     <!-- style CSS -->
     <link rel="stylesheet" href="<?php echo $bit_app["path_url"]; ?>bit_css/style.css">
     <link rel="stylesheet" href="<?php echo $bit_app["path_url"]; ?>bit_css/toggle-switch.css">
+    <!-- font -->
 
     <!-- jquery -->
     <script src="bit_js/jquery-1.12.1.min.js"></script>
@@ -52,7 +53,20 @@ include_once("bit_config.php");
     <!-- jquery ui -->
     <script src="bit_js/jquery-ui.min.js"></script>
 
+    <style>
+        @font-face {
+            font-family: 'norwesterregular';
+            src: url('bit_css/fonts/norwester/norwester-webfont.woff2') format('woff2'),
+                url('bit_css/fonts/norwester/norwester-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
 
+        }
+
+        #sasis {
+            font-family: 'norwesterregular';
+        }
+    </style>
 
 
 </head>
@@ -71,7 +85,7 @@ include_once("bit_config.php");
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand" href="index.html"> <img src="bit_css/img/logo-telkom.png" alt="logo" width="58"> </a>
+                        <a class="navbar-brand" href="index.html"> <img src="bit_css/img/telkom1.png" alt="logo" width="100"> </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>

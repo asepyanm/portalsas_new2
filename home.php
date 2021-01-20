@@ -10,8 +10,8 @@
                 <div class="banner_text">
                     <div class="banner_text_iner">
                         <h5>SIAP...!!! SIGAP...!!! MENANG...!!!</h5>
-                        <h1>SAS App</h1>
-                        <p>Tools pengelolaan pengamanan / security dan safety perusahaan seperti pengelolaan SMK3, konten APAR dan pengelolaan vandalisme dan safety Care</p>
+                        <h1 id="sasis">SAS<span style="font-size: 50px;">is<span></h1>
+                        <p>Tools Pengelolaan Security & Safety Perusahaan "Sistem Manajemen K3" / "Asset Protection" / "Safety Care" / "Vandalisme"</p>
 
                         <?php appSAS(); ?>
 
