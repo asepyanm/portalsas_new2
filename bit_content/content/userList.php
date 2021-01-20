@@ -245,7 +245,7 @@
 	</p>
 	<hr class="article_layout_hr">
 	<p align="right">
-		<? $f->button("add", "Tambah", "button", "window.open('" . $bit_app["path_url"] . "/bit_content/content/userAdd.php','win','height=340,width=600,resizable=1,scrollbars=1')") ?>
+		<? $f->button("add", "Tambah", "button", "window.open('" . $bit_app["path_url"] . "/bit_content/content/userAdd.php','win','height=395,width=600,resizable=1,scrollbars=1')") ?>
 		&nbsp;
 		<? $f->button("refresh", "Refresh", "button", "window.location=window.location.href") ?>
 	</p>

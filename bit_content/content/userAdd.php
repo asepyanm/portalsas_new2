@@ -29,11 +29,13 @@ include_once("../../bit_config.php");
 				return false;
 			}
 
+			/*
 			if (document.forms[0].tInput[3].value == '') {
 				alert('Group silahkan diisi terlebih dahulu !');
 				document.forms[0].tInput[3].focus();
 				return false;
 			}
+			*/
 
 			if (document.forms[0].tBirth.value == '') {
 				alert('Tanggal lahir silahkan diisi terlebih dahulu !');
@@ -65,7 +67,7 @@ include_once("../../bit_config.php");
 			<td>NIK (*)</td>
 			<td colspan="3">
 				<?php $f->textbox("tInput[]", "tInput", $_POST["tInput"][0], "inputBox", 10, 255) ?>
-				<?php $f->button("go", "Go", "button", "document.forms[0].submit()") ?>
+				<?php //$f->button("go", "Go", "button", "document.forms[0].submit()") ?>
 			</td>
 		</tr>
 		<tr>
@@ -89,7 +91,7 @@ include_once("../../bit_config.php");
 			<td colspan="3"><?php $f->textbox("tInput[]", "tInput", $rsNama->value[1][2], "", 50, 255, "", "") ?></td>
 		</tr>
 		<tr>
-			<td>Group (*)</td>
+			<td>Group</td>
 			<td colspan="3"><?php $f->textbox("tInput[]", "tInput", $_POST["tInput"][3], "inputBox", 50, 255) ?></td>
 		</tr>
 		<tr>
@@ -257,13 +259,15 @@ include_once("../../bit_config.php");
 		$(document).ready(function() {
 			var year = '<?= date('Y'); ?>';
 
-			var rYear = parseInt(year) - 10;
+			var lYear = parseInt(year) - 57;
+			var rYear = parseInt(year) - 20;
 			
 			$('#tBirth').datepicker({
 				changeMonth: true,
 				changeYear: true,
 				dateFormat: 'yy-mm-dd',
-				maxDate: new Date('12/31/'+ rYear)
+				yearRange: lYear + ':' +  rYear,
+				//maxDate: new Date('12/31/'+ rYear)
 			});
 		});
 	</script>
