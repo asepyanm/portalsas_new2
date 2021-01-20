@@ -4488,7 +4488,7 @@ function appSAS()
 	$qry = "select sub_menu_name, content from sub_menu_l1 where type='APP' order by posisi";
 	$r = $ora->sql_fetch($qry, $bit_app["db"]);
 	for ($i = 1; $i <= $r->jumrec; ++$i) {
-		echo '<a href="' . $r->value[$i]['content'] . '" target="_blank" class="btn_1">' . $r->value[$i]['sub_menu_name'] . '</a>' . "\n";
+		echo '<a href="' . $r->value[$i]['content'] . '" target="_blank" class="btn_1" style="margin-top:10px;">' . $r->value[$i]['sub_menu_name'] . '</a>' . "\n";
 	}
 
 	echo '<a href="kebijakan.php" class="btn_1" style="margin-top:10px;">Peraturan Perundang Undangan</a>';
