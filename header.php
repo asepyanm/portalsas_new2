@@ -45,7 +45,8 @@ include_once("bit_config.php");
     <link rel="stylesheet" href="<?php echo $bit_app["path_url"]; ?>bit_css/style.css">
     <link rel="stylesheet" href="<?php echo $bit_app["path_url"]; ?>bit_css/toggle-switch.css">
     <!-- font -->
-
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gentium+Book+Basic&display=swap" rel="stylesheet">
     <!-- jquery -->
     <script src="bit_js/jquery-1.12.1.min.js"></script>
     <script src="bit_js/jquery.colorbox-min.js"></script>
@@ -60,11 +61,34 @@ include_once("bit_config.php");
                 url('bit_css/fonts/norwester/norwester-webfont.woff') format('woff');
             font-weight: normal;
             font-style: normal;
+        }
 
+        @font-face {
+            font-family: 'impact';
+            src: url('bit_css/fonts/impact.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
         }
 
         #sasis {
-            font-family: 'norwesterregular';
+            font-family: 'impact';
+            font-size: 50px;
+            margin-bottom: 0px;
+        }
+
+        #safety {
+            font-family: 'Gentium Book Basic', serif;
+            font-size: 15px;
+            font-weight: bold;
+            font-style: italic;
+            color: #19c282;
+            text-shadow: 0.2px 0.2px 0.5px #bdbdbd;
+        }
+
+        #tools {
+            font-family: Calibri;
+            line-height: normal;
+            margin-bottom: 15px;
         }
     </style>
 

@@ -10,9 +10,9 @@
                 <div class="banner_text">
                     <div class="banner_text_iner">
                         <!-- <h5>SIAP...!!! SIGAP...!!! MENANG...!!!</h5>//-->
-                        <h1 id="sasis">SAS<span style="font-size: 50px;">is<span></h1>
-                        <p style="line-height: normal; margin-bottom:5px;">Tools Pengelolaan Security & Safety Perusahaan "Sistem Manajemen K3" / <br> "Asset Protection" / "Safety Care" / "Vandalisme"</p>
-                        <h5 style="color: #00796b;">Safety and productivity cannot be separated. So, <br> keep them together</h5>
+                        <h1 id="sasis">S A S<span style="font-size: 35px; font-weight:100;">is<span></h1>
+                        <p id="tools"> <span style="font-weight: bold; font-size:19px;">Tools Pengelolaan Security & Safety Perusahaan</span> <br> <span style="font-weight: bold; font-size:13px;">"Sistem Manajemen K3" / "Asset Protection" / "Safety Care" / "Vandalisme"</span></p>
+                        <h5 id="safety">Safety and productivity cannot be separated.<br> So, keep them together</h5>
 
                         <?php appSAS(); ?>
 
